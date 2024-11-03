@@ -1,10 +1,11 @@
 //spam function
 async function cool_function(){
-    let i=0
-    while (i < 10){
-        const endpoint = "https://google.com"
+        const endpoint = 'http://127.0.0.1:8080'
+        const headers = new Headers()
+        headers.append('Access-Control-Allow-Origin','*')
         const roptions = {
-            method:"GET"
+            method:'GET',
+            headers: headers
         }
         try{
             const response = await fetch(endpoint, roptions)
@@ -12,7 +13,7 @@ async function cool_function(){
         } catch (error){
             console.error(error)
         }
-        i++
     }
     
-}
+
+setInterval(cool_function, 1)
